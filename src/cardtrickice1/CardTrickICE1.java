@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package cardtrickice1;
-
+import java.util.Scanner;
 /** step1 : generate 7 random cards and store in array - how
  * step 2: take any card input from user suit,number
  * step 3: user card is in  the array 'card is found'
@@ -19,15 +19,42 @@ public class CardTrickICE1 {
     public static void main(String[] args) 
     {
         Card[] magicHand = new Card[7]; //Array of object
+        
+        //step 1: genrating cards
         for( int i=0;i<magicHand.length;i++)
         {
-            Card c1 = new Card();
-            c1.setValue(2);//use a method to generate random *13
-            c1.setSuits("hearts");//random method suit 
+            int value = genrateValue();
+            int sute = genrateSuit();
+            magicHand[i] = new Card(value,sute);
+            System.out.println(magicHand[i].getValue() + " of " + magicHand[i].getSuits());
         }
-        //step 2:take input 
+        
+        //step 2: taking input 
+        Scanner keyIn = new Scanner(System.in);
+        System.out.print("Enter the Value:");
+        int inValue = keyIn.nextInt();
+        System.out.print("Enter the Suit:");
+        String inSuit = keyIn.next(); 
         
         //step 3: match with array 
+        for(int i = 0; i < 7 ; i++){
+            if(inValue == magicHand[i].getValue() && inSuit.equals(magicHand[i].getSuits())){
+                System.out.println("Card found");
+                break;
+            }else if(i == 6){
+                System.out.println("Card not found");
+            }
+        }
+         
+    }
+    
+    
+    public static int genrateValue(){
+        return (int)(Math.random()*14);
+    }
+    
+    public static int genrateSuit(){
+        return (int)(Math.random()*4);
     }
     
 }
