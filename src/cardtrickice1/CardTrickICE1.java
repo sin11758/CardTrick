@@ -45,7 +45,7 @@ public class CardTrickICE1 {
                 System.out.println("Card not found");
             }
         }
-         
+        Card luckyCard = new Card(4,"hearts");
     }
     
     
