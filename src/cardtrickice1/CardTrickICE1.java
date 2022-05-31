@@ -50,7 +50,7 @@ public class CardTrickICE1 {
     
     
     public static int genrateValue(){
-        return (int)(Math.random()*14);
+        return (int)(Math.random()*13) + 1;
     }
     
     public static int genrateSuit(){
