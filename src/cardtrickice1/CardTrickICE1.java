@@ -33,21 +33,25 @@ public class CardTrickICE1 {
         
         //step 2: taking input 
         Scanner keyIn = new Scanner(System.in);
-        System.out.print("Enter the Value:");
+        System.out.println("Please choose the Value (1 to 13):");
         int inValue = keyIn.nextInt();
-        System.out.print("Enter the Suit:");
-        String inSuit = keyIn.next(); 
+        System.out.println("Please choose the Suit:");
+        System.out.println("1: diamonds");
+        System.out.println("2: clubs");
+        System.out.println("3: spades");
+        System.out.println("4: hearts");
+        int inSuit = keyIn.nextInt(); 
         
         //step 3: match with array 
         for(int i = 0; i < 7 ; i++){
-            if(inValue == magicHand[i].getValue() && inSuit.equals(magicHand[i].getSuits())){
+            if(inValue == magicHand[i].getValue() && Card.SUITS[inSuit-1].equals(magicHand[i].getSuits())){
                 System.out.println("Card found");
                 break;
             }else if(i == 6){
-                System.out.println("Card not found");
+                System.out.println("Sorry, Card not found");
             }
         }
-        Card luckyCard = new Card(4,"hearts");
+        Card luckyCard = new Card(4,3);
     }
     
     
